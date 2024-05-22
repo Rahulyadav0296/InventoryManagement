@@ -13,11 +13,6 @@ function Products() {
 
   useEffect(() => {
     const fetchDetails = async () => {
-      if (!token) {
-        navigate("/login");
-        return;
-      }
-
       try {
         const response = await fetch("http://localhost:9000/products", {
           method: "GET",
@@ -43,10 +38,12 @@ function Products() {
       }
     };
 
-    if (token) {
+    if (!token) {
+      navigate("/login");
+    } else {
       fetchDetails();
     }
-  }, [token]);
+  }, [token, navigate]);
 
   //   const handleDelete = async (productId) => {
   //     try {
@@ -81,10 +78,6 @@ function Products() {
     return <div>Error: {error}</div>;
   }
 
-  if (!details) {
-    return <p>Please Update the details....</p>;
-  }
-
   return (
     <>
       {isBaseRoute && (
@@ -96,7 +89,8 @@ function Products() {
             </Link>
           </div>
           <div className="product-list">
-            {details &&
+            {details && details.length > 0 ? (
+              details &&
               details.map((product) => (
                 <div key={product.id} className="product-details">
                   <h2>Product Name: {product.name}</h2>
@@ -138,7 +132,10 @@ function Products() {
                     </button>
                   </div>
                 </div>
-              ))}
+              ))
+            ) : (
+              <p>Please Login for view products</p>
+            )}
           </div>
         </div>
       )}
