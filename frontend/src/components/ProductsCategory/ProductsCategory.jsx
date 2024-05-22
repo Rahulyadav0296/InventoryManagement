@@ -13,10 +13,6 @@ function ProductCategory() {
 
   useEffect(() => {
     const fetchDetails = async () => {
-      if (!token) {
-        navigate("/login");
-        return;
-      }
       try {
         const response = await fetch(
           "http://localhost:9000/product-categories",
@@ -35,7 +31,6 @@ function ProductCategory() {
             `Network response was not ok: ${response.status} - ${errorText}`
           );
         }
-
         const data = await response.json();
         // console.log("The data coming from productCategory: ", data.data);
         setDetails(data.data); // Access the data property directly
@@ -45,10 +40,12 @@ function ProductCategory() {
       }
     };
 
-    if (token) {
+    if (!token) {
+      navigate("/login");
+    } else {
       fetchDetails();
     }
-  }, [token]);
+  }, [token, navigate]);
 
   const handleDelete = async (productCategoryId) => {
     try {
@@ -85,10 +82,6 @@ function ProductCategory() {
     return <div>Error: {error}</div>;
   }
 
-  if (!details) {
-    return <p>Please Update the details...</p>;
-  }
-
   return (
     <>
       {isBaseRoute && (
@@ -97,7 +90,8 @@ function ProductCategory() {
             <h1>products Category</h1>
           </div>
           <div className="productCategory-list">
-            {details &&
+            {details && details.length > 0 ? (
+              details &&
               details.map((product) => (
                 <div key={product.id} className="product-details">
                   <h2>product Name: {product.name}</h2>
@@ -124,7 +118,10 @@ function ProductCategory() {
                     </button>
                   </div>
                 </div>
-              ))}
+              ))
+            ) : (
+              <p>Please Login for view products</p>
+            )}
           </div>
         </div>
       )}
