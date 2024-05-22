@@ -12,11 +12,6 @@ function BrandList() {
   const isBaseRoute = location.pathname === "/brands";
 
   const fetchDetails = async () => {
-    if (!token) {
-      navigate("/login");
-      return;
-    }
-
     try {
       const response = await fetch("http://localhost:9000/brands", {
         method: "GET",
@@ -41,10 +36,12 @@ function BrandList() {
     }
   };
   useEffect(() => {
-    if (token) {
+    if (!token) {
+      navigate("/login");
+    } else {
       fetchDetails();
     }
-  }, [token]);
+  }, [token, navigate]);
 
   const handleDelete = async (brandId) => {
     try {
@@ -76,10 +73,6 @@ function BrandList() {
     return <div>Error: {error}</div>;
   }
 
-  if (!details) {
-    return <p>Please Update the details....</p>;
-  }
-
   return (
     <>
       {isBaseRoute && (
@@ -91,7 +84,8 @@ function BrandList() {
             </Link>
           </div>
           <div className="brand-list">
-            {details &&
+            {details && details.length > 0 ? (
+              details &&
               details.map((brand) => (
                 <div key={brand.id} className="brand-details">
                   <h2>Brand Name: {brand.name}</h2>
@@ -117,7 +111,10 @@ function BrandList() {
                     </button>
                   </div>
                 </div>
-              ))}
+              ))
+            ) : (
+              <p>Please Login for view Brand</p>
+            )}
           </div>
         </div>
       )}
