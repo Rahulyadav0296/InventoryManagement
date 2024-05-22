@@ -1,72 +1,134 @@
+# Inventory
 
-Inventory
-Is an open source Inventory API
+**Inventory** is an open-source Inventory API.
 
- Language : Golang, ReactJs
- Database : MySQL 8
- Architecture : Simple MVC
- Router : httprouter
- SQL : database/sql
+- **Language**: Golang, ReactJs
+- **Database**: MySQL 8
+- **Architecture**: Simple MVC
+- **Router**: httprouter
+- **SQL**: database/sql
 
-Disclaimer
-The Backend only provides Inventory API, For front end ui i used 
-ReactJs Framework with Context API and React Router DOM.
+## Disclaimer
 
-Get Started
+The backend only provides Inventory API. For the frontend UI, I used the ReactJs framework with Context API and React Router DOM.
 
-For run the backend code 
+## Get Started
 
- git clone git@github.com:jacky-htg/inventory.git
- cp .env.example .env
- edit .env with your environment
- create database (the database name must be match with your environment)
- go mod init github.com/jacky-htg/inventory
- go run cmd/main.go migrate
- go run cmd/main.go seed
- go run cmd/main.go scan-access
- go test -v (To test all of API. For run this command, you need docker installed in your laptop)
- go run main.go
+### Backend Setup
 
-API Testing
- Open your postman application
- Import file inventory.postman_collection.json
- Import file inventory.postman_environment.json
- Call GET /login request in auth directory. username: jackyhtg password:12345678
- Edit current value of token on inventory environment with token in result of login
- Test all request
+1. Clone the repository:
+    ```sh
+    git clone git@github.com:jacky-htg/inventory.git
+    ```
 
-Directory structure is :
+2. Copy the example environment file and edit it with your environment details:
+    ```sh
+    cp .env.example .env
+    # Edit the .env file to match your environment
+    ```
 
-> cmd
-> controllers
-> libraries
-> middleware
-> models
-> payloads
-    > request
-    > response
-> routing
-> schema 
+3. Create the database (ensure the database name matches the one in your environment configuration).
 
-For run the Front End
- git clone https://github.com/Rahulyadav0296/InventoryManagement.git
- npm install 
- npm run dev
+4. Initialize the Go module:
+    ```sh
+    go mod init github.com/jacky-htg/inventory
+    ```
 
-Directory structure is :
+5. Run the database migrations:
+    ```sh
+    go run cmd/main.go migrate
+    ```
 
-> public
-> src
-    > assets
-    > components
-          > Brands
-          > Customers 
-          > Products
-          > ProductCategory
-          > Users
-          Navbar.jsx
-> pages
-> utils
-> App.js
-> index.css
-> Main.jsx
+6. Seed the database:
+    ```sh
+    go run cmd/main.go seed
+    ```
+
+7. Scan access permissions:
+    ```sh
+    go run cmd/main.go scan-access
+    ```
+
+8. To test all APIs, ensure Docker is installed and run:
+    ```sh
+    go test -v
+    ```
+
+9. Start the application:
+    ```sh
+    go run main.go
+    ```
+
+### API Testing
+
+1. Open your Postman application.
+2. Import the Postman collection:
+    - `inventory.postman_collection.json`
+3. Import the Postman environment:
+    - `inventory.postman_environment.json`
+4. Call the `GET /login` request in the auth directory with the following credentials:
+    - **Username**: jackyhtg
+    - **Password**: 12345678
+5. Edit the current value of the token in the inventory environment with the token obtained from the login result.
+6. Test all requests.
+
+### Directory Structure
+
+- `cmd`
+- `controllers`
+- `libraries`
+- `middleware`
+- `models`
+- `payloads`
+    - `request`
+    - `response`
+- `routing`
+- `schema`
+
+### Frontend Setup
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/Rahulyadav0296/InventoryManagement.git
+    ```
+
+2. Install the dependencies:
+    ```sh
+    npm install
+    ```
+
+3. Run the development server:
+    ```sh
+    npm run dev
+    ```
+
+### Directory Structure
+
+- `public`
+- `src`
+    - `assets`
+    - `components`
+        - `Brands`
+        - `Customers`
+        - `Products`
+        - `ProductCategory`
+        - `Users`
+        - `Navbar.jsx`
+    - `pages`
+    - `utils`
+    - `App.js`
+    - `index.css`
+    - `Main.jsx`
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+
+## Contact
+
+For any inquiries, please contact [Your Name](mailto:your-email@example.com).
+
