@@ -13,11 +13,6 @@ function Customer() {
 
   useEffect(() => {
     const fetchCustomers = async () => {
-      if (!token) {
-        navigate("/login");
-        return;
-      }
-
       try {
         const response = await fetch("http://localhost:9000/customers", {
           method: "GET",
@@ -42,7 +37,9 @@ function Customer() {
       }
     };
 
-    if (token) {
+    if (!token) {
+      navigate("/login");
+    } else {
       fetchCustomers();
     }
   }, [token, navigate]);
@@ -119,9 +116,7 @@ function Customer() {
                 </div>
               ))
             ) : (
-              <div className="no-customers-message">
-                Please Enter Customer Details
-              </div>
+              <p>No customers available</p>
             )}
           </div>
         </div>
