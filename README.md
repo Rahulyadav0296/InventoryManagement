@@ -123,7 +123,7 @@ The backend only provides the Inventory API. For the frontend UI, ReactJs framew
 ## Deployment
 
 The frontend design can be accessed via the following link:
-[https://664d96a1357e95a9b2f10842--sunny-moxie-f0c94d.netlify.app/](https://664d96a1357e95a9b2f10842--sunny-moxie-f0c94d.netlify.app/)
+https://shiny-otter-22342d.netlify.app/
 
 ## Contact
 
