@@ -10,7 +10,7 @@
 
 ## Disclaimer
 
-The backend only provides Inventory API. For the frontend UI, I used the ReactJs framework with Context API and React Router DOM.
+The backend only provides the Inventory API. For the frontend UI, ReactJs framework with Context API and React Router DOM is utilized.
 
 ## Get Started
 
@@ -120,15 +120,11 @@ The backend only provides Inventory API. For the frontend UI, I used the ReactJs
     - `index.css`
     - `Main.jsx`
 
-## License
+## Deployment
 
-This project is open source and available under the [MIT License](LICENSE).
-
-## Contributing
-
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+The frontend design can be accessed via the following link:
+[https://664d96a1357e95a9b2f10842--sunny-moxie-f0c94d.netlify.app/](https://664d96a1357e95a9b2f10842--sunny-moxie-f0c94d.netlify.app/)
 
 ## Contact
 
-For any inquiries, please contact [Your Name](mailto:your-email@example.com).
-
+For any inquiries, please contact [Rahul Yadav](mailto:rahulyadav0296@example.com).
