@@ -1,0 +1,31 @@
+#hero {
+  transition: transform 1s;
+  margin: 10px;
+}
+#hero:hover {
+  transform: scale(1.1);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.dynamic-button {
+  color: #ffffff;
+  background-color: #05f5a5;
+  border: none;
+  margin: 5px;
+  font-weight: bold;
+  padding: 12px 20px; /* Add some padding for better appearance */
+  text-decoration: none; /* Remove underline */
+  display: inline-flex; /* For proper alignment of icon and text */
+  align-items: center; /* Align icon and text vertically */
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dynamic-button span {
+  font-size: 25px;
+  margin-left: 10px; /* Space between text and arrow */
+}
+
+.dynamic-button i {
+  margin-right: 10px; /* Space between icon and text */
+}

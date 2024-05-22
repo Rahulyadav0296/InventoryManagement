@@ -1,0 +1,118 @@
+.user-details-container {
+  max-width: 800px; /* Adjust the width to fit three columns */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.btn {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  width: 100px; /* Fixed width */
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-details {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-details h2 {
+  margin-top: 0;
+}
+
+.user-details p {
+  margin: 5px 0;
+}
+
+.roles {
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.actions .btn {
+  flex-grow: 1;
+}
+
+.branch {
+  margin-top: 10px;
+}
+
+.branch h3 {
+  margin-bottom: 5px;
+}
+
+/* Mobile Styles */
+@media (max-width: 1024px) {
+  .user-list {
+    grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .user-list {
+    grid-template-columns: 1fr; /* Adjust to 1 column for mobile */
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header h1 {
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    width: 100%; /* Make buttons full width on mobile */
+    margin-bottom: 10px; /* Add some margin for spacing */
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .actions .btn:last-child {
+    margin-bottom: 0;
+  }
+}
