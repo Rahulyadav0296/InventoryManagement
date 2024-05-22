@@ -90,40 +90,47 @@ function UserList() {
             </Link>
           </div>
           <div className="user-list">
-            {details.map((user) => (
-              <div key={user.id} className="user-details">
-                <h2>Username: {user.username}</h2>
-                <p>Active: {user.is_active ? "Yes" : "No"}</p>
-                <p className="roles">
-                  Roles: {user.roles.map((role) => role.Name).join(", ")}
-                </p>
-                <p>Company ID: {user.company.id}</p>
-                <p>Company Code: {user.company.code}</p>
-                <p>Company Name: {user.company.name}</p>
-                <p>Company Address: {user.company.address}</p>
-                {user.branch && (
-                  <div>
-                    <h3>Branch:</h3>
-                    <p>Branch ID: {user.branch.id}</p>
-                    <p>Branch Code: {user.branch.code}</p>
-                    <p>Branch Name: {user.branch.name}</p>
-                    <p>Branch Address: {user.branch.address}</p>
-                    <p>Branch Type: {user.branch.type}</p>
+            {details && details.length > 0 ? (
+              details.map((user) => (
+                <div key={user.id} className="user-details">
+                  <h2>Username: {user.username}</h2>
+                  <p>Active: {user.is_active ? "Yes" : "No"}</p>
+                  <p className="roles">
+                    Roles: {user.roles.map((role) => role.Name).join(", ")}
+                  </p>
+                  <p>Company ID: {user.company.id}</p>
+                  <p>Company Code: {user.company.code}</p>
+                  <p>Company Name: {user.company.name}</p>
+                  <p>Company Address: {user.company.address}</p>
+                  {user.branch && (
+                    <div>
+                      <h3>Branch:</h3>
+                      <p>Branch ID: {user.branch.id}</p>
+                      <p>Branch Code: {user.branch.code}</p>
+                      <p>Branch Name: {user.branch.name}</p>
+                      <p>Branch Address: {user.branch.address}</p>
+                      <p>Branch Type: {user.branch.type}</p>
+                    </div>
+                  )}
+                  <div className="actions">
+                    <Link to={`/users/view/${user.id}`}>
+                      <button className="btn">View </button>
+                    </Link>
+                    <Link to={`/users/update/${user.id}`}>
+                      <button className="btn">Update</button>
+                    </Link>
+                    <button
+                      className="btn"
+                      onClick={() => handleDelete(user.id)}
+                    >
+                      Delete
+                    </button>
                   </div>
-                )}
-                <div className="actions">
-                  <Link to={`/users/view/${user.id}`}>
-                    <button className="btn">View </button>
-                  </Link>
-                  <Link to={`/users/update/${user.id}`}>
-                    <button className="btn">Update</button>
-                  </Link>
-                  <button className="btn" onClick={() => handleDelete(user.id)}>
-                    Delete
-                  </button>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <p>Please Login for view Users</p>
+            )}
           </div>
         </div>
       )}
