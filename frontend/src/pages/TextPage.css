@@ -29,3 +29,66 @@
 .dynamic-button i {
   margin-right: 10px; /* Space between icon and text */
 }
+
+/* Ensure box-sizing is border-box */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Ensure main container has padding */
+.container {
+  padding: 15px;
+  max-width: 100%;
+}
+
+/* Adjust typography */
+h1,
+h2,
+h3 {
+  word-wrap: break-word;
+}
+
+/* Flexbox adjustments */
+.px-0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom button styling */
+.dynamic-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #05f5a5;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dynamic-button:hover {
+  background-color: #04e594;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 767.98px) {
+  .display-4 {
+    font-size: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 10px;
+  }
+}
