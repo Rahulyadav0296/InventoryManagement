@@ -12,6 +12,55 @@
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+/* Navbar brand logo */
+.navbar-brand img {
+  border-radius: 10px;
+  width: 72px;
+  height: 57px;
+}
+
+/* Dropdown menu customization */
+.dropdown-menu .dropdown-item {
+  color: black;
+}
+
+.dropdown-menu .dropdown-item.active {
+  color: greenyellow;
+}
+
+/* Active nav link color */
+.nav-link.active {
+  color: greenyellow !important;
+}
+
+/* Override Bootstrap's default padding for smaller screens */
+.navbar-nav .nav-item .nav-link {
+  padding: 0.5rem 1rem;
+}
+
+/* Custom padding for login and logout links */
+.nav-item .nav-link {
+  padding: 0 5px 20px 5px;
+}
+
+/* Media query for mobile view */
+@media (max-width: 767.98px) {
+  .navbar-nav .nav-item .nav-link {
+    padding: 0.5rem 1rem;
+  }
+
+  /* Align dropdown menu to left */
+  .dropdown-menu {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  /* Custom mobile styling for brand logo */
+  .navbar-brand img {
+    width: 50px;
+    height: 40px;
+  }
+}
 
 .form-signin input[type="password"] {
   margin-bottom: 10px;
